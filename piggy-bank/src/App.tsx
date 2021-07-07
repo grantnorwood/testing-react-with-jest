@@ -1,8 +1,8 @@
 import React, { useReducer } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import appReducer from './reducers/appReducer';
+import { getInitialStateForLoggedInUser, getInitialStateForUnauthenticatedUser } from './utils/users';
 import './App.css';
-
-import { loadInitialAccountData, getInitialStateForLoggedInUser, getInitialStateForUnauthenticatedUser } from './utils/users';
 
 import Balance from './components/Balance/Balance';
 import Deposit from './components/Deposit/Deposit';
@@ -33,52 +33,14 @@ interface AppState {
 }
 
 // The default state based on development mode
-const defaultState: AppState = isDevelopment
+const initialState: AppState = isDevelopment
   ? getInitialStateForLoggedInUser()
   : getInitialStateForUnauthenticatedUser();
 
 // App context
-export const AppContext = React.createContext(defaultState)
+export const AppContext = React.createContext(initialState)
 
-// @ts-ignore
-export const appReducer = (state, action) => {
-	switch (action.type) {
-		case 'LOGIN':
-      // TODO: Add real jwt token to localStorage
-			localStorage.setItem('user', JSON.stringify(action.payload.user));
-			return {
-				...state,
-				isAuthenticated: true,
-        user: action.payload.user,
-        account: loadInitialAccountData(),
-			}
-		case 'LOGOUT':
-			localStorage.clear()
-			return {
-				...state,
-				isAuthenticated: false,
-				user: null,
-			}
-		case 'WITHDRAW':
-			return {
-				...state,
-				account: {
-          balance: action.payload.newBalance
-        }
-			}
-		case 'DEPOSIT':
-			return {
-				...state,
-				account: {
-          balance: action.payload.newBalance
-        }
-			}
-		default:
-			return state
-	}
-}
-
-function App(initialState) {
+function App() {
 	const [state, dispatch] = useReducer(appReducer, initialState);
 
   return (
