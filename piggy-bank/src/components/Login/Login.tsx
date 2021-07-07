@@ -49,7 +49,7 @@ const Login: React.FC = () => {
               }
             }
         })
-      }, 1000)
+      }, 500)
     } else {
       setData({
         ...data,
