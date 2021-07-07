@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '../tests/test-utils';
 import App/* , { AppContext, appReducer } */ from '../App';
 // import { getInitialStateForLoggedInUser } from '../utils/users';
 
@@ -18,6 +18,9 @@ it('renders the login screen when not logged in', () => {
   expect(pin).toBeInTheDocument();
 });
 
+/**
+ * TODO: Fix the `dispatch()` within AppContext issue
+ */
 // it.skip('renders the balance screen when a user is logged in', () => {
 //   // First, we get some intial state.
 //   const initialState = getInitialStateForLoggedInUser();
