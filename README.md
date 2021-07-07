@@ -27,6 +27,8 @@ In today's workshop, we'll start up a sandbox application using Create React App
   - [Exercises](#exercises)
 <!-- /TOC -->
 
+<hr>
+
 ## Required pre-work
 
 **It's important that you get your environment setup before you arrive at the workshop!** You can do this by completing each section of the instructions in this main README file.
@@ -88,10 +90,36 @@ The SSH url to the repo is: `git@github.com:grantnorwood/testing-react-with-jest
 
 ✅ _**Congratulations, your pre-work is done!** But of course you're free to look ahead to the exercises we'll be working on._
 
+<hr>
+
+## Start up the example application
+
+Our example app is called `piggy-bank`, and is a simple sandbox app that mimicks using an ATM.
+
+To start the app:
+
+```bash
+cd piggy-bank
+yarn start
+```
+
+Once started, you'll see some output in your console like this:
+
+```bash
+Compiled successfully!
+
+You can now view piggy-bank in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://10.0.0.21:3000
+
+Note that the development build is not optimized.
+To create a production build, use yarn build.
+```
+
 ## Exercises
 
 _Let's go!_
 
-- [Exercise 1: Start up the example application](docs/exercise-1.md)
-- [Exercise 2: Writing your first test](docs/exercise-2.md)
-- [Exercise 3: Testing user interactions](docs/exercise-3.md)
+- [Exercise 1: Writing your first test](docs/exercise-1.md)
+- [Exercise 2: Testing user interactions](docs/exercise-2.md)

@@ -2,12 +2,14 @@ import React, { useReducer } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 
+import { loadInitialAccountData, getInitialStateForLoggedInUser, getInitialStateForUnauthenticatedUser } from './utils/users';
+
 import Balance from './components/Balance/Balance';
 import Deposit from './components/Deposit/Deposit';
 import Header from './components/Header/Header';
-import Login from './components/Login/Login'
-import NotFound from './components/NotFound/NotFound'
-import Withdraw from './components/Withdraw/Withdraw'
+import Login from './components/Login/Login';
+import NotFound from './components/NotFound/NotFound';
+import Withdraw from './components/Withdraw/Withdraw';
 
 /**
  * Set to true to bypass entering a pin during development, or false in production.
@@ -17,17 +19,8 @@ import Withdraw from './components/Withdraw/Withdraw'
 export const isDevelopment = false;
 export const defaultPIN = '1234';
 
-export const DAILY_WITHDRAWL_LIMIT = 1000
-export const DAILY_DEPOSIT_LIMIT = 5000
-
-/**
- * Fetch from some fake db.
- */
-const loadInitialAccountData = (): object => {
-  return {
-    balance: 4213.88
-  }
-}
+export const DAILY_WITHDRAWL_LIMIT = 1000;
+export const DAILY_DEPOSIT_LIMIT = 5000;
 
 interface AppState {
   isAuthenticated: boolean,
@@ -39,24 +32,13 @@ interface AppState {
   }
 }
 
-// Initial state based on development mode
-const initialState: AppState = isDevelopment
-  ? {
-    isAuthenticated: true,
-    user: {
-      name: 'Grant'
-    },
-    account: loadInitialAccountData(),
-  }
-  : {
-    isAuthenticated: false,
-    user: null,
-    account: null,
-  }
+// The default state based on development mode
+const defaultState: AppState = isDevelopment
+  ? getInitialStateForLoggedInUser()
+  : getInitialStateForUnauthenticatedUser();
 
 // App context
-// @ts-ignore
-export const AppContext = React.createContext(initialState)
+export const AppContext = React.createContext(defaultState)
 
 // @ts-ignore
 export const appReducer = (state, action) => {
@@ -96,7 +78,7 @@ export const appReducer = (state, action) => {
 	}
 }
 
-function App() {
+function App(initialState) {
 	const [state, dispatch] = useReducer(appReducer, initialState);
 
   return (
