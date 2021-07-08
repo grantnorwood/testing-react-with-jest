@@ -27,7 +27,7 @@ describe('App', () => {
     //       There's some duplication that needs to be remedied when testing just this App component!
     //
     render(<App defaultState={getInitialStateForLoggedInUser()} />, {
-      wrapperProps: { initialState: getInitialStateForUnauthenticatedUser() },
+      wrapperProps: { initialState: getInitialStateForLoggedInUser() },
     })
 
     // Then we select the heading element
