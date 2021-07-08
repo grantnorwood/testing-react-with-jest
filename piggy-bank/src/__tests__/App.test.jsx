@@ -57,4 +57,25 @@ describe('App', () => {
     // Assert that the Balance screen's heading is displayed correctly
     expect(heading).toBeInTheDocument()
   })
+
+  it('displays an error when a user attempts to log in with an invalid PIN', async () => {
+    // First, we render the component
+    render(<App />, {
+      wrapperProps: { initialState: getInitialStateForUnauthenticatedUser() },
+    })
+
+    // Then we select the input element. (We don't need to assert here, because this line will fail if the element isn't found as it is a `getBy*` query.)
+    const pin = screen.getByLabelText('Please enter your PIN')
+    const button = screen.getByRole('button', { name: /Login/i })
+
+    // Then we type the PIN & submit the form by clicking the button (just as a user would!)
+    userEvent.type(pin, 'abcd')
+    userEvent.click(button)
+
+    // NOTE: We could also test pressing the {enter} key, as the login action occurs on form submit.
+    const errorMessage = await screen.findByText(/Incorrect PIN/i)
+
+    // Assert that the Balance screen's heading is displayed correctly
+    expect(errorMessage).toBeInTheDocument()
+  })
 });
