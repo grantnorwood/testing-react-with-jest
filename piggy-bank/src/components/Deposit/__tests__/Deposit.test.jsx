@@ -2,11 +2,14 @@ import React from 'react';
 import { render, screen } from '../../../tests/test-utils';
 import userEvent from '@testing-library/user-event';
 import Deposit from '../Deposit';
+import { getInitialStateForLoggedInUser } from '../../../utils/users';
 
 describe('components | Deposit', () => {
-  it.skip('renders the deposit screen', async () => {
+  it('renders the deposit screen and allows a user to make a deposit', async () => {
     // First, we render the component
-    render(<Deposit />);
+    render(<Deposit />, {
+      wrapperProps: { initialState: getInitialStateForLoggedInUser() },
+    })
 
     // Then we select the heading & deposit elements
     const heading = screen.getByRole('heading', { name: /Make a Deposit/i });
@@ -18,6 +21,7 @@ describe('components | Deposit', () => {
     expect(heading).toBeInTheDocument();
     expect(deposit).toBeInTheDocument();
 
+    // The user makes a $1000 deposit
     userEvent.type(amount, '1000');
     userEvent.click(button);
 
