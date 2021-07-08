@@ -126,3 +126,4 @@ _Let's go!_
 - [Exercise 1: Writing your first test](docs/exercise-1.md)
 - [Exercise 2: Determining if a user is logged in](docs/exercise-2.md)
 - [Exercise 3: Testing user interactions](docs/exercise-3.md)
+- [Exercise 4: Adding tests to other components](docs/exercise-4.md)

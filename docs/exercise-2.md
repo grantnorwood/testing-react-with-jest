@@ -118,6 +118,8 @@ It's important to organize your tests for readability, and for clarity when some
 
 ❗️ **From this point forward, each of our components will group their tests in a `describe()` block!**
 
+<hr>
+
 ✅ Nice!  You've added a second test, enabled your tests to mock a logged-in user _(or an unauthenticated one)_, and you've learned to group your tests with `describe()`.
 
 _Let's continue to [Exercise 3: Testing user interactions](exercise-3.md)!_
