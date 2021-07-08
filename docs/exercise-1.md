@@ -115,6 +115,8 @@ Since we know that we should almost always use `screen.getByRole()`, let's use t
     expect(pin).toBeInTheDocument();
     ```
 
+<hr>
+
 ✅ Nice!  Your first test is now checking that the appropriate elements of the Login component are being displayed when the app starts up.
 
 However, we've only just begun ... we now need to add tests for each of the other components in our project, including ones which verify user interactions – like typing in textboxes & clicking buttons – and others that ensure the proper content is displayed depending on whether a user is logged in.
