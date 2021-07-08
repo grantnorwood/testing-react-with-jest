@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import Deposit from '../Deposit';
 
 describe('components | Deposit', () => {
-  it('renders the deposit screen', async () => {
+  it.skip('renders the deposit screen', async () => {
     // First, we render the component
     render(<Deposit />);
 

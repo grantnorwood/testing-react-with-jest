@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import Withdraw from '../Withdraw';
 
 describe('components | Deposit', () => {
-  it('renders the withdraw screen', async () => {
+  it.skip('renders the withdraw screen', async () => {
     // First, we render the component
     render(<Withdraw />);
 
