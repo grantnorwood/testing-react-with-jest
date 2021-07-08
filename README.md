@@ -94,6 +94,8 @@ The SSH url to the repo is: `git@github.com:grantnorwood/testing-react-with-jest
 
 ## Start up the example application
 
+![Welcome to Piggy Bank](https://user-images.githubusercontent.com/707463/124850796-e9606900-df66-11eb-8de1-25c53788a1e1.png)
+
 Our example app is called `piggy-bank`, and is a simple sandbox app that mimicks using an ATM.
 
 To start the app:
@@ -116,6 +118,8 @@ You can now view piggy-bank in the browser.
 Note that the development build is not optimized.
 To create a production build, use yarn build.
 ```
+
+<hr>
 
 ## Exercises
 
