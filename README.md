@@ -1,4 +1,4 @@
-# Testing React with Jest
+# Testing React with Jest & React Testing Library
 
 **Welcome to the workshop!**
 
@@ -14,18 +14,16 @@ In today's workshop, we'll start up a sandbox application using Create React App
 
 <hr>
 
-<!-- TOC -->
-- [Testing React with Jest](#testing-react-with-jest)
-  - [Required pre-work](#required-pre-work)
-  - [Setting up your environment](#setting-up-your-environment)
-    - [Node.js](#nodejs)
-    - [A Code Editor (IDE)](#a-code-editor-ide)
-    - [Git](#git)
-  - [Clone the workshop repo from GitHub](#clone-the-workshop-repo-from-github)
-    - [CLI](#cli)
-    - [Sourcetree](#sourcetree)
-  - [Exercises](#exercises)
-<!-- /TOC -->
+- [Required pre-work](#required-pre-work)
+- [Setting up your environment](#setting-up-your-environment)
+  - [Node.js](#nodejs)
+  - [A Code Editor (IDE)](#a-code-editor-ide)
+  - [Git](#git)
+- [Clone the workshop repo from GitHub](#clone-the-workshop-repo-from-github)
+  - [CLI](#cli)
+  - [Sourcetree](#sourcetree)
+- [Start up the example application](#start-up-the-example-application)
+- [Exercises](#exercises)
 
 <hr>
 
@@ -94,7 +92,7 @@ The SSH url to the repo is: `git@github.com:grantnorwood/testing-react-with-jest
 
 ## Start up the example application
 
-![Welcome to Piggy Bank](https://user-images.githubusercontent.com/707463/124850796-e9606900-df66-11eb-8de1-25c53788a1e1.png)
+![Welcome to PiggyBank](https://user-images.githubusercontent.com/707463/124850796-e9606900-df66-11eb-8de1-25c53788a1e1.png)
 
 Our example app is called `piggy-bank`, and is a simple sandbox app that mimicks using an ATM.
 
@@ -126,4 +124,5 @@ To create a production build, use yarn build.
 _Let's go!_
 
 - [Exercise 1: Writing your first test](docs/exercise-1.md)
-- [Exercise 2: Testing user interactions](docs/exercise-2.md)
+- [Exercise 2: Determining if a user is logged in](docs/exercise-2.md)
+- [Exercise 3: Testing user interactions](docs/exercise-3.md)
