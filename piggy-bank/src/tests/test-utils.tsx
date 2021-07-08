@@ -1,12 +1,26 @@
-import React, { FC, ReactElement, useReducer } from 'react'
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import React, { ReactElement, useReducer } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { render, RenderOptions } from '@testing-library/react'
-import appReducer from '../reducers/appReducer';
+import appReducer from '../reducers/appReducer'
 import { AppContext } from '../App'
-import { getInitialStateForLoggedInUser } from '../utils/users';
+import { getInitialStateForUnauthenticatedUser } from '../utils/users'
 
-const AllTheProviders: FC = ({ children }) => {
-	const [state, dispatch] = useReducer(appReducer, getInitialStateForLoggedInUser());
+interface RenderOptionsWithWrapperProps extends RenderOptions {
+  wrapperProps?: object
+}
+
+interface AllTheProvidersProps {
+  initialState?: object
+  children?: React.ReactNode
+}
+
+/**
+ * The initial state defaults to an unauthenticated user.
+ *
+ * @returns React.FC
+ */
+const AllTheProviders = ({ initialState = getInitialStateForUnauthenticatedUser(), children }: AllTheProvidersProps) => {
+	const [state, dispatch] = useReducer(appReducer, initialState);
 
   return (
     <AppContext.Provider
@@ -25,8 +39,8 @@ const AllTheProviders: FC = ({ children }) => {
 
 const customRender = (
   ui: ReactElement,
-  options?: Omit<RenderOptions, 'wrapper'>
-) => render(ui, { wrapper: AllTheProviders, ...options })
+  options?: Omit<RenderOptionsWithWrapperProps, 'wrapper'>,
+) => render(ui, { wrapper: props => <AllTheProviders {...props} {...options?.wrapperProps} />, ...options })
 
 export * from '@testing-library/react'
 export { customRender as render }
