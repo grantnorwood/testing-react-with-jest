@@ -17,7 +17,7 @@ Since we want to write our test code with our user in mind, here are the things 
 
 Now let's ask your test to attempt to login with a valid PIN.
 
-1. Add a new `import` statement at the top of your Login component's test file:
+1. Add a new `import` statement at the top of your App component's test file:
     
     ```javascript
     import userEvent from '@testing-library/user-event'

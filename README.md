@@ -17,6 +17,7 @@ In today's workshop, we'll start up a sandbox application using Create React App
 - [Required pre-work](#required-pre-work)
 - [Setting up your environment](#setting-up-your-environment)
   - [Node.js](#nodejs)
+    - [Yarn vs NPM](#yarn-vs-npm)
   - [A Code Editor (IDE)](#a-code-editor-ide)
   - [Git](#git)
 - [Clone the workshop repo from GitHub](#clone-the-workshop-repo-from-github)
@@ -51,6 +52,12 @@ To install Node.js, you may either:
 
 * Download & install from the [nodejs.org](https://nodejs.org/en/) site _(simplest method)_
 * ... _or_, for maximum fun with switching quickly between various versions of Node.js, [install NVM](https://github.com/creationix/nvm)
+
+#### Yarn vs NPM
+
+They're both great package managers, and because the example app was built using [Create React App](https://github.com/facebook/create-react-app#creating-an-app), you can choose either one.
+
+Just be aware that the `npm` command is included with your Node.js installation, but you'll need to `npm install --global yarn` if you choose to use Yarn instead.
 
 ### A Code Editor (IDE)
 
@@ -102,6 +109,8 @@ To start the app:
 cd piggy-bank
 yarn start
 ```
+
+_(or `npm install && npm start` if using NPM)_
 
 Once started, you'll see some output in your console like this:
 
